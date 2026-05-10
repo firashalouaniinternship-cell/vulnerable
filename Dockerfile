@@ -6,7 +6,8 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-  COPY . /
+   COPY . /
  EXPOSE 8000
  CMD sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-USER myuser
+ARG USER=myuser
+USER $USER
